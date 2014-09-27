@@ -1,0 +1,32 @@
+{
+	"name": "gourmet/dashboard"
+	, "description": "Dashboard plugin for CakePHP 3"
+	, "type": "cakephp-plugin"
+	, "keywords": [
+		"cakephp"
+		, "dashboard"
+	]
+	, "homepage": "http://github.com/gourmet/dashboard"
+	, "license": "MIT"
+	, "authors": [
+		{
+			"name": "Jad Bitar"
+			, "role": "Author"
+		}
+	]
+	, "support": {
+		"issues": "http://github.com/gourmet/dashboard/issues"
+		, "source": "http://github.com/gourmet/dashboard"
+	}
+	, "require": {
+		"cakephp/plugin-installer": "dev-master"
+	}
+	, "autoload": {
+		"psr-4": {
+			"Gourmet\\Dashboard\\": "src"
+		}
+	}
+	, "extra": {
+		"installer-name": "Gourmet/Dashboard"
+	}
+}
