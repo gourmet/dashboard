@@ -4,6 +4,8 @@ Build beautiful dashboards for your cakes!
 
 __This is an unstable repository and should be treated as an alpha.__
 
+![sample](http://cdn.makeagif.com/media/9-30-2014/543VkC.gif)
+
 ## Requirements
 
 * CakePHP 3.0.0 or greater.
