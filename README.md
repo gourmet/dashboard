@@ -24,6 +24,12 @@ or by adding this package to your project's `composer.json`:
 }
 ```
 
+Now, enable the plugin in your `bootstrap.php` (including bootstrap and routes):
+
+```
+Plugin::load('Gourmet/Dashboard', ['bootstrap' => true, 'routes' => true]);
+```
+
 You will also need to symlink the assets:
 
 |From                                                    |To                             |
