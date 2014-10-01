@@ -27,7 +27,7 @@ abstract class AbstractWidgetWorker implements EventListener {
  */
 	public function __construct() {
 		$this->_id = Inflector::underscore(str_replace('WidgetWorker', '', get_class($this)));
-		$this->_events = TableRegistry::get('Gourmet/Dashboard.Events');
+		$this->_events = $this->_getEvents();
 	}
 
 /**
@@ -70,5 +70,14 @@ abstract class AbstractWidgetWorker implements EventListener {
  * @return void
  */
 	public function beforePoll(Event $event) {}
+
+/**
+ * Separate for easier testing.
+ *
+ * @return \Cake\ORM\Table
+ */
+	protected function _getEvents() {
+		return TableRegistry::get('Gourmet/Dashboard.Events');
+	}
 
 }
