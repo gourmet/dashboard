@@ -56,9 +56,12 @@ abstract class AbstractWidgetWorker implements EventListener {
  * @return boolean
  */
 	public function interval($secs) {
-		return
-			!($event = $this->_events->find('recent')->where(['widget' => $this->_id])->first())
-			|| (time() - $event['last_run']) >= $secs;
+		$event = $this->_events->find('recent')->where(['widget' => $this->_id])->first();
+		if ($event && (time() - $event['last_run']) < $secs) {
+			$this->push($event['data']);
+			return false;
+		}
+		return true;
 	}
 
 /**
