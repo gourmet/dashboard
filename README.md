@@ -36,15 +36,15 @@ You will also need to symlink the assets:
 
 |From                                                    |To                             |
 |--------------------------------------------------------|-------------------------------|
-|`plugin/Gourmet/Dashboard/webroot/assets/dashboard.css` |`webroot/assets/dashboard.css` |
-|`plugin/Gourmet/Dashboard/webroot/assets/dashboard.js`  |`webroot/assets/dashboard.js`  |
-|`plugin/Gourmet/Dashboard/webroot/font`                 |`webroot/font/dashboard`       |
+|`plugins/Gourmet/Dashboard/webroot/assets/dashboard.css` |`webroot/assets/dashboard.css` |
+|`plugins/Gourmet/Dashboard/webroot/assets/dashboard.js`  |`webroot/assets/dashboard.js`  |
+|`plugins/Gourmet/Dashboard/webroot/font`                 |`webroot/font/dashboard`       |
 
 To preview the sample dashboard, you will need to also copy some sample widgets to your app:
 
 |From                               |To                    |
 |-----------------------------------|----------------------|
-|`plugin/Gourmet/Dashboard/samples` |`src/DashboardWidget` |
+|`plugins/Gourmet/Dashboard/samples` |`src/DashboardWidget` |
 
 That's it! You can now access the sample dashboard at: http://localhost/gourmet/dashboard/index
 
