@@ -25,6 +25,11 @@ class EventsTable extends Table {
 	public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, \ArrayObject $options) {
 		if ($entity->isNew()) {
 			$entity->created = date('YmdHis'); //sqlite doesn't support datetime comparisons
+			// populate the scraped field, used to calculate the last_run used
+			// in \Gourmet\Dashboard\DashboardWidget\AbstractWidgetWorker::interval()
+			if (empty($entity->scraped)) {
+				$entity->scraped = date('Y-m-d H:i:s');
+			}
 		}
 		return true;
 	}
@@ -63,10 +68,11 @@ class EventsTable extends Table {
  *
  * @param string $widget Widget's identifier.
  * @param array $data Data attached to event.
+ * @param boolean $scraped Tells if the event data was just scraped or being re-pushed.
  * @return \Cake\Datasource\EntityInterface|bool
  */
-	public function push($widget, $data) {
-		return $this->save($this->newEntity(compact('widget', 'data')));
+	public function push($widget, $data, $scraped =  null) {
+		return $this->save($this->newEntity(compact('widget', 'data', 'scraped')));
 	}
 
 /**

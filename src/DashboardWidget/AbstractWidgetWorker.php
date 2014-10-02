@@ -42,12 +42,12 @@ abstract class AbstractWidgetWorker implements EventListener {
  *
  * @return void
  */
-	public function push($data, $id = null) {
+	public function push($data, $id = null, $scraped = null) {
 		if (empty($id)) {
 			$id = $this->_id;
 		}
 
-		$this->_events->push($id, $data);
+		$this->_events->push($id, $data, $scraped);
 	}
 
 /**
@@ -58,7 +58,7 @@ abstract class AbstractWidgetWorker implements EventListener {
 	public function interval($secs) {
 		$event = $this->_events->find('recent')->where(['widget' => $this->_id])->first();
 		if ($event && (time() - $event['last_run']) < $secs) {
-			$this->push($event['data']);
+			$this->push($event['data'], $this->_id, $event['last_run']);
 			return false;
 		}
 		return true;

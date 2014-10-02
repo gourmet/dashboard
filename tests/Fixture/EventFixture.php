@@ -11,6 +11,7 @@ class EventFixture extends TestFixture {
 		'widget' => ['type' => 'string'], // if null, then it's 'dashboards'
 		'data' => ['type' => 'string', 'null' => false], // json_encode()'d event data to pass to widget
 		'view_cnt' => ['type' => 'integer', 'default' => 0], // count views, 0 for new events
+		'scraped' => ['type' => 'datetime'],
 		'created' => ['type' => 'string'], // used for the `updatedAt` passed to widget and to check the last run
 		'_constraints' => [
 			'primary' => ['type' => 'primary', 'columns' => ['id']]
