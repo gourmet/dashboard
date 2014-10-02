@@ -24,7 +24,10 @@ class EventsTable extends Table {
  */
 	public function beforeSave(\Cake\Event\Event $event, \Cake\ORM\Entity $entity, \ArrayObject $options) {
 		if ($entity->isNew()) {
-			$entity->created = date('YmdHis'); //sqlite doesn't support datetime comparisons
+			// populate the created field (TimestampBehavior could not be used,
+			// as sqlite doesn't support datetime comparisons which are needed
+			// on this field.
+			$entity->created = date('YmdHis');
 			// populate the scraped field, used to calculate the last_run used
 			// in \Gourmet\Dashboard\DashboardWidget\AbstractWidgetWorker::interval()
 			if (empty($entity->scraped)) {
