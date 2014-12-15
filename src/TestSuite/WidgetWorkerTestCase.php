@@ -18,7 +18,7 @@ class WidgetWorkerTestCase extends \PHPUnit_Framework_TestCase {
  * @return
  */
 	protected function _getWidgetWorkerMock(array $methods = []) {
-		return $this->getMock('\\' . $this->_name, array_merge(['_getEvents'], $methods));
+		return $this->getMock('\\' . $this->_name . 'WidgetWorker', array_merge(['_getEvents'], $methods));
 	}
 
 /**
