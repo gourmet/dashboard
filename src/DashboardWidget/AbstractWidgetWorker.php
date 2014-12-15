@@ -3,13 +3,13 @@
 namespace Gourmet\Dashboard\DashboardWidget;
 
 use Cake\Event\Event;
-use Cake\Event\EventListener;
+use Cake\Event\EventListenerInterface;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
 use Gourmet\Dashboard\Cache\Cache;
 use Gourmet\Dashboard\Lib\Dashboard;
 
-abstract class AbstractWidgetWorker implements EventListener {
+abstract class AbstractWidgetWorker implements EventListenerInterface {
 
 /**
  * Widget's ID
