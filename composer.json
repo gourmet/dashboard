@@ -17,7 +17,6 @@
 	}
 	, "require": {
 		"cakephp/cakephp": "3.0.*-dev"
-		, "cakephp/plugin-installer": "dev-master"
 		, "kriswallsmith/assetic": "~1.1"
 		, "leafo/scssphp": "~0.1"
 	}
